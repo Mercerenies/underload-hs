@@ -25,6 +25,7 @@ dependencies:
 - parsec >= 3.1 && < 4
 
 ghc-options:
+- -O2
 - -Wall
 - -Wcompat
 - -Widentities
