@@ -26,6 +26,7 @@ library
       Underload.Atom
       Underload.Code
       Underload.Code.Parser
+      Underload.Evaluator
       Underload.Util
   other-modules:
       Paths_underload_hs
@@ -35,6 +36,7 @@ library
   build-depends:
       base >=4.7 && <5
     , containers >=0.7 && <1
+    , mtl >=2.3 && <3
     , parsec >=3.1 && <4
   default-language: Haskell2010
 
@@ -48,6 +50,7 @@ executable underload-hs-exe
   build-depends:
       base >=4.7 && <5
     , containers >=0.7 && <1
+    , mtl >=2.3 && <3
     , parsec >=3.1 && <4
     , underload-hs
   default-language: Haskell2010
@@ -63,6 +66,7 @@ test-suite underload-hs-test
   build-depends:
       base >=4.7 && <5
     , containers >=0.7 && <1
+    , mtl >=2.3 && <3
     , parsec >=3.1 && <4
     , underload-hs
   default-language: Haskell2010

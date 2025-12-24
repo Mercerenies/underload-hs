@@ -1,10 +1,11 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Underload.Code (Term(..), Code(..)) where
+module Underload.Code (Term(..), Code(..), singleton, enclose, popLeft) where
 
 import Underload.Atom (Atom)
 
-import Data.Sequence (Seq)
+import Data.Sequence (Seq, ViewL(..))
+import qualified Data.Sequence as Seq
 
 data Term = AtomTerm Atom | Quoted Code
             deriving (Eq)
@@ -18,3 +19,14 @@ instance Show Term where
 
 instance Show Code where
     showsPrec _ (Code ts) = foldMap shows ts
+
+singleton :: Term -> Code
+singleton = Code . Seq.singleton
+
+enclose :: Code -> Code
+enclose = singleton . Quoted
+
+popLeft :: Code -> Maybe (Term, Code)
+popLeft (Code code) = case Seq.viewl code of
+                        EmptyL -> Nothing
+                        t :< code' -> Just (t, Code code')
