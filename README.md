@@ -31,3 +31,9 @@ stack run <underload-filename>
 ```
 
 Some assorted example files are available in `examples/`.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+If you use it for something cool, I'd love to hear about it :)

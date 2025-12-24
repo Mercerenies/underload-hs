@@ -1,7 +1,7 @@
 name:                underload-hs
 version:             0.1.0.0
 github:              "mercerenies/underload-hs"
-license:             AllRightsReserved
+license:             MIT
 author:              "Silvio Mayolo"
 copyright:           "2025 Silvio Mayolo"
 

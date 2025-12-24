@@ -12,7 +12,8 @@ bug-reports:    https://github.com/mercerenies/underload-hs/issues
 author:         Silvio Mayolo
 maintainer:     Silvio Mayolo
 copyright:      2025 Silvio Mayolo
-license:        AllRightsReserved
+license:        MIT
+license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
