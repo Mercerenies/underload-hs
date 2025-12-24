@@ -7,6 +7,7 @@ import Underload.Code (Code)
 import Underload.Code.Parser (parseCode)
 
 import Data.Function ((&))
+import Data.String.Utils (rstrip)
 import Control.Monad.Except (runExceptT)
 import Control.Monad.State (evalStateT)
 import System.Environment (getArgs)
@@ -15,7 +16,7 @@ import System.Exit (exitFailure)
 main :: IO ()
 main = do
   sourceFilename <- getFilename
-  sourceFile <- readFile sourceFilename
+  sourceFile <- rstrip <$> readFile sourceFilename
   parsedCode <- case parseCode sourceFilename sourceFile of
                   Left parseError -> do
                     putStrLn $ "Parse error: " ++ show parseError
