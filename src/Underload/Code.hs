@@ -18,7 +18,7 @@ instance Show Term where
     showsPrec _ (Quoted code) = ("(" ++) . shows code . (")" ++)
 
 instance Show Code where
-    showsPrec _ (Code ts) = foldMap shows ts
+    showsPrec _ (Code ts) = foldr (.) id $ fmap shows ts
 
 singleton :: Term -> Code
 singleton = Code . Seq.singleton
