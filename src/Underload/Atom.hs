@@ -1,4 +1,3 @@
-{-# LANGUAGE DerivingStrategies, GeneralizedNewtypeDeriving #-}
 
 module Underload.Atom (Atom(), atomChar, tryAtom, atom) where
 
@@ -6,7 +5,7 @@ import Data.Maybe (maybeToList)
 
 -- A character other than a literal parenthesis.
 newtype Atom = Atom Char
-    deriving newtype (Show, Eq)
+    deriving (Eq)
 
 atomChar :: Atom -> Char
 atomChar (Atom ch) = ch
@@ -18,6 +17,9 @@ atom :: Char -> Atom
 atom ch = case tryAtom ch of
             Just x -> x
             Nothing -> error "Underload.Atom: atom: invalid character"
+
+instance Show Atom where
+    showsPrec _ (Atom ch) = (ch:)
 
 instance Read Atom where
     readsPrec _ [] = []
