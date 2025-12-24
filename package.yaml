@@ -19,6 +19,8 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- containers >= 0.7 && < 1
+- parsec >= 3.1 && < 4
 
 ghc-options:
 - -Wall
@@ -30,6 +32,7 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
+- -Wno-name-shadowing  # Why is this one a thing?
 
 library:
   source-dirs: src
