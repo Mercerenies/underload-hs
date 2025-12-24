@@ -32,6 +32,29 @@ stack run <underload-filename>
 
 Some assorted example files are available in `examples/`.
 
+## Supported Commands
+
+`underload-hs` supports all of the standard Underload commands, plus a
+couple of extra non-standard extensions useful for debugging.
+
+Note: Stack effects are listed using the [Factor
+convention](https://docs.factorcode.org/content/article-effects.html).
+
+Standard? | Command | Name              | Stack Effect       | Notes
+----------|---------|-------------------|--------------------|-------------------------------------------------------
+✔         | `~`     | Swap              | `( x y -- y x )`   | Swaps the top two stack elements
+✔         | `:`     | Duplicate         | `( x -- x x )`     | Duplicates the top stack element
+✔         | `!`     | Discard           | `( x -- )`         | Pops and discards the top stack element
+✔         | `*`     | Concatenate       | `( x y -- xy )`    | Concatenates the top two stack elements
+✔         | `(...)` | Push Literal      | `( -- x )`         | Pushes a literal value onto the stack
+✔         | `a`     | Enclose           | `( x -- <x> )`     | Wraps the top stack value in parentheses
+✔         | `^`     | Evaluate          | `( ..a x -- ..b )` | Evaluates the top stack element
+✔         | `S`     | Output            | `( x -- )`         | Prints the top stack element to the console
+✗         | `D`     | Stack&nbsp;Length | `( -- )`           | Prints the current length of the stack to the console
+✗         | `d`     | Stack&nbsp;Dump   | `( -- )`           | Prints the stack, in full, to the console
+
+
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
