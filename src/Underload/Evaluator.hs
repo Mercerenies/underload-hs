@@ -74,6 +74,16 @@ cmdOutput = do
   value <- doPop
   liftIO $ putStr (show value)
 
+cmdDebugStackLen :: (MonadState EvalState m, MonadError EvalError m, MonadIO m) => m ()
+cmdDebugStackLen = do
+  stack <- gets evalStack
+  liftIO $ putStrLn $ "Stack length is " ++ show (length stack)
+
+cmdDebugStackDump :: (MonadState EvalState m, MonadError EvalError m, MonadIO m) => m ()
+cmdDebugStackDump = do
+  stack <- gets evalStack
+  liftIO $ putStrLn $ "Stack is " ++ show stack
+
 runTerm :: (MonadState EvalState m, MonadError EvalError m, MonadIO m) => Term -> m ()
 runTerm (Quoted code) = doPush code
 runTerm (AtomTerm atom) = case atomChar atom of
@@ -84,6 +94,8 @@ runTerm (AtomTerm atom) = case atomChar atom of
                             'a' -> cmdEnclose
                             '^' -> cmdEval
                             'S' -> cmdOutput
+                            'D' -> cmdDebugStackLen
+                            'd' -> cmdDebugStackDump
                             _ -> throwError $ UnknownInstruction atom
 
 runProgram :: (MonadState EvalState m, MonadError EvalError m, MonadIO m) => m ()
