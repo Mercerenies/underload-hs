@@ -50,8 +50,8 @@ Standard? | Command | Name              | Stack Effect       | Notes
 ✔         | `a`     | Enclose           | `( x -- <x> )`     | Wraps the top stack value in parentheses
 ✔         | `^`     | Evaluate          | `( ..a x -- ..b )` | Evaluates the top stack element
 ✔         | `S`     | Output            | `( x -- )`         | Prints the top stack element to the console
-✗         | `D`     | Stack&nbsp;Length | `( -- )`           | Prints the current length of the stack to the console
-✗         | `d`     | Stack&nbsp;Dump   | `( -- )`           | Prints the stack, in full, to the console
+&nbsp;    | `D`     | Stack&nbsp;Length | `( -- )`           | Prints the current length of the stack to the console
+&nbsp;    | `d`     | Stack&nbsp;Dump   | `( -- )`           | Prints the stack, in full, to the console
 
 
 
