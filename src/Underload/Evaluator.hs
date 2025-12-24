@@ -55,8 +55,8 @@ cmdDiscard = void doPop
 
 cmdCat :: (MonadState EvalState m, MonadError EvalError m) => m ()
 cmdCat = do
-  x <- doPop
   y <- doPop
+  x <- doPop
   doPush (x <> y)
 
 cmdEnclose :: (MonadState EvalState m, MonadError EvalError m) => m ()
